@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>REGIMBOOK</title>
+    <link href="../asset/Regimbook_logo.jpeg" rel="icon">
+	<link href="../asset/apple-touch-icon.png" rel="apple-touch-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="../asset/css/login_style.css">
+
+	</head>
+	<body style="background-image: url('https://vistapointe.net/images/rashtrapati-bhavan-9.jpg');">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<a href="./index.html"><img src="asset\WhatsApp Image 2021-04-08 at 1.29.12 PM.jpeg" alt="" title="" width="400" height="100"/></a>
+					<h5 style="color: black;">Get all your government updates here...</h5>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+							<div class="text w-100">
+								<h2>Welcome to Regimbook</h2>
+								<p>Don't have an account?</p>
+								<a href="pages\SignUP.html" onclick="RegisterUser()" class="btn btn-white btn-outline-white">Sign Up</a>
+							</div>
+			      </div>
+						<div class="login-wrap p-4 p-lg-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4" style="color: white;">Sign In</h3>
+			      		</div>
+								<div class="w-100">
+
+								</div>
+			      	</div>
+							<form action="#" class="signin-form">
+			      		<div class="form-group mb-3">
+			      			<label class="label" for="name">Email ID:</label>
+			      			<input type="text" class="form-control" placeholder="Email ID:" id="email" required>
+			      		</div>
+		            <div class="form-group mb-3">
+		            	<label class="label" for="password">Password</label>
+		              <input type="password" class="form-control" placeholder="Password" id="password"required>
+		            </div>
+		            <div class="form-group">
+		            	<a onclick="LoginUser()" type="submit" class="form-control btn btn-primary submit px-3"><b>Sign In</b></a>
+		            </div>
+		            <div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="w-50 text-md-right">
+										<a href="pages\reset.html">Forgot Password?</a>
+									</div>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+  <script src="asset\js\login_jquery.min.js"></script>
+  <script src="asset\js\popper.js"></script>
+  <script src="asset\js\login_bootstrap.min.js"></script>
+  <script src="asset\js\login_main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+
+
+  <script>
+	var firebaseConfig = {
+	apiKey: "AIzaSyC4aDT3CqasVNJTd3ssdttbJh2x37lpF_c",
+    authDomain: "regimbook-f818d.firebaseapp.com",
+    projectId: "regimbook-f818d",
+    storageBucket: "regimbook-f818d.appspot.com",
+    messagingSenderId: "285440449996",
+    appId: "1:285440449996:web:c74142e93e1db081f51169",
+    measurementId: "G-C8JNJYV5LN"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  function LoginUser() {
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function() {
+      checkIfEmailVerified(); // Check email verification status before redirecting
+    })
+    .catch(function(error) {
+      var errorCode = error.code;
+      var errorMsg = error.message;
+      window.alert("Error: " + errorMsg);
+    });
+	}
+
+	function checkIfEmailVerified() {
+	var user = firebase.auth().currentUser;
+
+	if (user) {
+		user.reload().then(() => { // Reload user data to get the latest emailVerified status
+		if (user.emailVerified) {
+			// window.alert("Email verified successfully! Redirecting...");
+			window.location.replace("../pages/home_page.html");
+			localStorage.setItem('id', user.uid);
+		} else {
+			window.alert("Please verify your email before logging in.");
+			firebase.auth().signOut(); // Sign out the user if email is not verified
+		}
+		}).catch((error) => {
+		console.error("Error reloading user:", error.message);
+		});
+	}
+	}
+
+
+	const resetPasswordFunction = () => {
+    const email = mailField.value;
+    
+    if(!email)
+    {
+        window.alert("Please enter a registered email");
+    }
+    else
+    {
+        
+        auth.sendPasswordResetEmail(email).then(() => {
+    
+        window.alert('Password Reset Email Sent Successfully!');
+    
+    }).catch(function(error){
+      
+        window.alert("Please enter a registered email");
+    });
+    }
+    }
+</script>
+	</body>
+</html>
+

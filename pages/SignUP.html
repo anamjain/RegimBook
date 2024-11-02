@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>REGIMBOOK</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="../asset/css/login_style.css">
+
+	</head>
+	<body style="background-image: url('https://vistapointe.net/images/rashtrapati-bhavan-9.jpg');">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<a href="../index.html"><img src="../asset/WhatsApp Image 2021-04-08 at 1.29.12 PM.jpeg" alt="" title="" width="400" height="100"/></a>
+					<h3> Create an account </h3>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+						
+			      	<div class="d-flex">
+								<div class="w-100">
+
+								</div>
+			      	</div>
+							<form action="#" class="signin-form">
+								<div class="form-group mb-3 d-flex align-items-center">
+									<label class="label w-25 text-right">First Name</label>
+									<input type="text" class="form-control w-75" placeholder="First Name" id="fname" required>
+								</div>
+								<div class="form-group mb-3 d-flex align-items-center">
+									<label class="label w-25 text-right">Last Name</label>
+									<input type="text" class="form-control w-75" placeholder="Last Name" id="lname" required>
+								</div>
+								<div class="form-group mb-3 d-flex align-items-center">
+									<label class="label w-25 text-right" for="email">Email ID</label>
+									<input type="text" class="form-control w-75" placeholder="Email ID" id="email" required>
+								</div>
+								<div class="form-group mb-3 d-flex align-items-center">
+									<label class="label w-25 text-right" for="password">Password</label>
+									<input type="password" class="form-control w-75" placeholder="Password" id="password" required>
+								</div>								
+					<div>
+					<label class="checkbox-wrap checkbox-primary mb-0">I understand and agree to the terms of use and privacy policy.
+						<input id="check" type="checkbox" unchecked>
+						<span class="checkmark"></span>
+						  </label>
+					  </div>
+		            <div class="form-group mt-3">
+		            	<a onclick="RegisterUser()" type="submit" id="enter" class="form-control btn btn-primary submit px-3" style="color: white;" >Sign Up</a>
+					</div>
+					<div>
+						<a>Already have an account?<a type="text" href="../index.html">Sign in!</a></a>
+		            </div>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+  <script src="../asset/js/login_jquery.min.js"></script>
+  <script src="../asset/js/popper.js"></script>
+  <script src="../asset/js/login_bootstrap.min.js"></script>
+  <script src="../asset/js/login_main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
+
+  <!-- <script>
+	  	var firebaseConfig = {
+	apiKey: "AIzaSyC4aDT3CqasVNJTd3ssdttbJh2x37lpF_c",
+    authDomain: "regimbook-f818d.firebaseapp.com",
+    projectId: "regimbook-f818d",
+    storageBucket: "regimbook-f818d.appspot.com",
+    messagingSenderId: "285440449996",
+    appId: "1:285440449996:web:c74142e93e1db081f51169",
+    measurementId: "G-C8JNJYV5LN"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var fname, lname, email, name1;
+  function Ready(){
+  fname = document.getElementById('fname').value;
+  lname = document.getElementById('lname').value;
+  mail = document.getElementById('email').value;
+  
+}
+  function RegisterUser() {
+	 var email=document.getElementById('email').value;
+	 var password=document.getElementById('password').value;
+	 firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
+	 Ready();
+	 name1 = email.substring(0, email.lastIndexOf("@"));
+	  firebase.database().ref('profile/'+name1).set({
+            FName: fname,
+            LName: lname,
+            Email: email
+	  });
+      window.alert("User Registered Succesfully")
+	  window.location.replace("../index.html");
+     
+      
+	 }).catch(function(error){
+  
+	  var errorcode=error.code;
+	  var errormsg=error.message;
+  
+	 });
+	 
+	}
+  </script>
+
+<script>
+	var input = document.getElementById("email");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+			document.getElementById("enter").click();
+
+        }
+    });
+</script> -->
+
+<script>
+	var firebaseConfig = {
+	  apiKey: "AIzaSyC4aDT3CqasVNJTd3ssdttbJh2x37lpF_c",
+	  authDomain: "regimbook-f818d.firebaseapp.com",
+	  projectId: "regimbook-f818d",
+	  storageBucket: "regimbook-f818d.appspot.com",
+	  messagingSenderId: "285440449996",
+	  appId: "1:285440449996:web:c74142e93e1db081f51169",
+	  measurementId: "G-C8JNJYV5LN"
+	};
+	
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+  
+	var fname, lname, email;
+  
+	function Ready() {
+	  fname = document.getElementById('fname').value;
+	  lname = document.getElementById('lname').value;
+	  email = document.getElementById('email').value;
+	}
+  
+	function RegisterUser() {
+	  var email = document.getElementById('email').value;
+	  var password = document.getElementById('password').value;
+  
+	  firebase.auth().createUserWithEmailAndPassword(email, password)
+		.then(function() {
+		  Ready();
+		  
+		  // Send verification email
+		  firebase.auth().currentUser.sendEmailVerification()
+			.then(function() {
+			  window.alert("Verification email sent! Please check your inbox.");
+  
+			  // Save user data in the database only after verification email is sent
+			  var name1 = email.substring(0, email.lastIndexOf("@"));
+			  firebase.database().ref('profile/' + name1).set({
+				FName: fname,
+				LName: lname,
+				Email: email
+			  });
+  
+			//   Redirect to a "Check your email" page
+			  window.location.replace("../index.html");
+  
+			}).catch(function(error) {
+			  console.error("Error sending verification email:", error.message);
+			});
+		})
+		.catch(function(error) {
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  window.alert("Error: " + errorMessage);
+		});
+	}
+  </script>
+  
+<!-- <script src="../index.js"></script> -->
+</body>
+</html>
+
