@@ -1,4 +1,6 @@
-const url = '../../api/news_vercel.js';
+const url = 'https://newsapi.org/v2/top-headlines?' +
+            'category=business&' +
+            'apiKey=285102aa06e948dd98743b4e63f95bde';
 
 fetch(url)
     .then(response => response.json())
