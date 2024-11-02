@@ -13,7 +13,7 @@ An web application having many features, information and all the necessary stuff
 Anam Jain
 
 <p align="center">
-<img src = "../asset/Anam (1).JPG"  height="160" alt="Your Name Here (Insert Your Image Link In Src">
+<img src = "asset/anam.jpg"  height="160" alt="Anam Jain">
 </p>
 <p align="center">
 <a href = "https://github.com/anamjain"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
