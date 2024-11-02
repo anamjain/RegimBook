@@ -10,13 +10,13 @@ An web application having many features, information and all the necessary stuff
   
   <td>
   
-Naman Jain
+Anam Jain
 
 <p align="center">
-<img src = "https://regimbook.netlify.app/estartup/eStartup/IMG_20210428_190748.jpg"  height="160" alt="Your Name Here (Insert Your Image Link In Src">
+<img src = "../asset/Anam (1).JPG"  height="160" alt="Your Name Here (Insert Your Image Link In Src">
 </p>
 <p align="center">
-<a href = "https://github.com/namannj15"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
+<a href = "https://github.com/anamjain"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
 </p>
 </td>
 
