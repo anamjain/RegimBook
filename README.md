@@ -3,7 +3,7 @@
 ## Description
 An web application having many features, information and all the necessary stuff required, at the same place which make things convenient and many online facilities are accessible to everyone who are still unaware of services provided by the government of India.
 
-<h2 align= "left"><b>About Me</b></h2>
+
 
 <table>
 <tr align="center">
